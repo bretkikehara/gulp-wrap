@@ -63,7 +63,11 @@ module.exports = function gulpWrap(opts, data, options) {
           }
         }
 
-        var newData = extend({file: file}, opts, data, file.data, {contents: contents});
+        var newData = extend({file: file}, opts, file.data, {
+          contents: contents,
+        }, {
+          contents: data,
+        });
 
         if (typeof template === 'function') {
           template = template(newData);
